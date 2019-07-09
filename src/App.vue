@@ -38,6 +38,7 @@
 <style lang="scss" scoped>
     .app-containe{
         padding-top:40px;
+        padding-bottom:50px;
         overflow-x: hidden;
     }
     .v-enter{
