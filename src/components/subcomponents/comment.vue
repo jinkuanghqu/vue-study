@@ -2,8 +2,8 @@
     <div class="cmt-container">
         <h3>评论组件</h3>
         <hr>
-        <textarea name="comment-contents" id="comment" cols="30" rows="10">最多吐槽120字</textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <textarea name="comment-contents" id="comment" cols="30" rows="10" v-model="msg">最多吐槽120字</textarea>
+        <mt-button @click="postComments" type="primary" size="large">发表评论</mt-button>
         <div class="cmt-list" v-for="(item , index) in comments" :key="index">
             <div class="cmt-item">
                 <div class="cmt-title">第{{index+1}}楼&nbsp;用户：{{item.user_name}}&nbsp;发表时间：{{item.add_time | dateFormat }}</div>
@@ -21,7 +21,8 @@
         data(){
             return {
                 pageIndex : 1,
-                comments : []
+                comments : [],
+                msg : '',
             }
         },
         created(){
@@ -42,11 +43,14 @@
                 this.pageIndex++;
                 var data = [
                     {user_name:"李白",add_time:"2019-07-09 10:05:20",content:"杜甫来喝两杯啊"},
-                    {user_name:"杜甫",add_time:"2019-07-09 10:05:30",content:"老李，你等我"},
+                    {user_name:"杜甫",add_time:"201957-07-09 10:05:30",content:"老李，你等我"},
                     {user_name:"李白",add_time:"2019-07-09 10:06:20",content:"好的，等你哦"},
                     {user_name:"杜甫",add_time:"2019-07-09 10:06:50",content:"你他么 能不能别这么娘!"},
                 ];
                 this.comments = this.comments.concat(data);
+            },
+            postComments(){
+
             }
         }
     }

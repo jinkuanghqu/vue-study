@@ -8,14 +8,22 @@ import VueResource from 'vue-resource'
 //注册vue-resource组件
 Vue.component(VueResource)
 //导入mint-ui组件
-import {Header,Swipe, SwipeItem,Button} from 'mint-ui'
+import {Header,Swipe, SwipeItem,Button,Lazyload} from 'mint-ui'
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
+import 'mint-ui/lib/style.css'
+//图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
 //注册mint-ui组件
 Vue.component(Header.name,Header)
 Vue.component(Swipe.name,Swipe)
 Vue.component(SwipeItem.name,SwipeItem)
 Vue.component(Button.name,Button)
+Vue.use(Lazyload)
+
+
 //导入router模块
 import router from './router.js'
 
