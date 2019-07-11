@@ -1,12 +1,8 @@
 <template>
     <div>
-        <mt-swipe :auto="4000">
+        <!-- 轮播图组件 -->
+        <swiper :luoboList="luoboList" :isfull="true"></swiper>
 
-            <mt-swipe-item v-for="item in luoboList" v-bind:key="item.img">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-
-        </mt-swipe>
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newslist">
@@ -49,9 +45,8 @@
 </template>
 
 <script>
-    import {
-        Toast
-    } from 'mint-ui'
+    import {Toast} from 'mint-ui'
+    import swiper from '../subcomponents/swiper.vue'
     export default {
         data() {
             return {
@@ -77,7 +72,8 @@
                     }
                 ]
             }
-        }
+        },
+        components : {swiper}
     }
 </script>
 

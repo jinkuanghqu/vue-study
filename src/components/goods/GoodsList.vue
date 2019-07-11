@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="goods-list">
-            <router-link tag="div" :to="'/home/goodsinfo/' + item.id" class="goods-item" v-for="item in goodslist" :key="item.id">
+            <!-- <router-link tag="div" :to="'/home/goodsinfo/' + item.id" class="goods-item" v-for="item in goodslist" :key="item.id">
                 <img :src="item.img_url" alt="">
                 <h1 class="title">{{ item.title }}</h1>
                 <div class="info">
@@ -14,8 +14,23 @@
                         <span>剩{{ item.stock_quantity }}件</span>
                     </p>
                 </div>
-            </router-link>
+            </router-link> -->
+            <div tag="div" :to="'/home/goodsinfo/' + item.id" class="goods-item" v-for="item in goodslist" :key="item.id" @click="goDetail(item.id)">
+                <img :src="item.img_url" alt="">
+                <h1 class="title">{{ item.title }}</h1>
+                <div class="info">
+                    <p class="price">
+                        <span class="new">￥{{ item.sell_price }}</span>
+                        <span class="old">￥{{ item.market_price }}</span>
+                    </p>
+                    <p class="sell">
+                        <span>热卖中</span>
+                        <span>剩{{ item.stock_quantity }}件</span>
+                    </p>
+                </div>
+            </div>
         </div>
+        <mt-button type="danger" size="large" @click="getMore">加载更多</mt-button>
     </div>
 </template>
 
@@ -38,7 +53,16 @@
                     {id : 4 , title : "大疆无人机4", sell_price : "200", market_price : "600", stock_quantity : 1000, img_url : "http://img2.imgtn.bdimg.com/it/u=2574706152,359020682&fm=26&gp=0.jpg"},
                     {id : 5 , title : "大疆无人机5", sell_price : "200", market_price : "600", stock_quantity : 1000, img_url : "http://img2.imgtn.bdimg.com/it/u=2574706152,359020682&fm=26&gp=0.jpg"},
                     {id : 6 , title : "大疆无人机6", sell_price : "200", market_price : "600", stock_quantity : 1000, img_url : "http://img2.imgtn.bdimg.com/it/u=2574706152,359020682&fm=26&gp=0.jpg"},
+                    {id : 7 , title : "大疆无人机6", sell_price : "200", market_price : "600", stock_quantity : 1000, img_url : "http://img2.imgtn.bdimg.com/it/u=2574706152,359020682&fm=26&gp=0.jpg"},
                 ]
+            },
+            getMore(){
+                this.goodslist = this.goodslist.concat(this.goodslist)
+            },
+            goDetail(id){
+                console.log(this)
+                this.$router.push("/home/goodsinfo/"+id)
+                // this.$router.push({name:"goodsinfo",params:{id}})
             }
         }
        

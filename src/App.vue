@@ -1,7 +1,7 @@
 <template>
     <div class="app-containe">
         <!-- 顶部header区域 -->
-        <mt-header fixed title="Vue学习"></mt-header>
+        <mt-header fixed title="中华民族伟大复兴"></mt-header>
         <!-- 中间router-view区域 -->
         <transition>
             <router-view></router-view>
@@ -31,7 +31,7 @@
     
 <script>
     export default {
-        
+      
     }
 </script>
 
@@ -40,6 +40,9 @@
         padding-top:40px;
         padding-bottom:50px;
         overflow-x: hidden;
+        header{
+            h1{line-height: 30px;}
+        }
     }
     .v-enter{
         opacity: 0;
