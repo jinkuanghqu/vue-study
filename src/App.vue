@@ -1,7 +1,11 @@
 <template>
     <div class="app-containe">
         <!-- 顶部header区域 -->
-        <mt-header fixed title="中华民族伟大复兴"></mt-header>
+        <mt-header fixed title="中华民族伟大复兴">
+            <router-link to="/" slot="left">
+                <mt-button icon="back">返回</mt-button>
+            </router-link>
+        </mt-header>
         <!-- 中间router-view区域 -->
         <transition>
             <router-view></router-view>
@@ -18,7 +22,7 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item-lib" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">0</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item-lib" to="/search">
