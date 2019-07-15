@@ -90,7 +90,20 @@ var store = new Vuex.Store({
         })
         return s
       },
-      
+      getGoodsCountAndAmount(state){
+        var o = {
+          count : 0,
+          amount: 0
+        }
+        state.car.forEach(item=>{
+          if(item.selected){
+            o.count += item.count
+            o.amount+= item.count*item.price
+          }
+
+        })
+        return o
+      }
 
     }
 })

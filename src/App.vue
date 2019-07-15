@@ -2,9 +2,9 @@
     <div class="app-containe">
         <!-- 顶部header区域 -->
         <mt-header fixed title="中华民族伟大复兴">
-            <router-link to="/" slot="left">
+            <span slot="left" @click="goBack" v-show="flag">
                 <mt-button icon="back">返回</mt-button>
-            </router-link>
+            </span>
         </mt-header>
         <!-- 中间router-view区域 -->
         <transition>
@@ -35,7 +35,26 @@
     
 <script>
     export default {
-      
+        data(){
+            return {
+                flag : false
+            }
+        },
+        methods : {
+            goBack(){
+                this.$router.go(-1)
+
+            }
+        },
+        watch : {
+            "$route.path" : function(newVal){
+                if(newVal === "/home"){
+                    this.flag = false;
+                }else{
+                    this.flag = true
+                }
+            }
+        }
     }
 </script>
 
